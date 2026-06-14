@@ -1,58 +1,199 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Career DNA — Laravel Project Structure
+## Team Guide — Each member works on their own file
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+## Folder Structure
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+resources/views/
+├── layouts/
+│   ├── candidate.blade.php     ← Candidate top-nav layout (shared)
+│   ├── employer.blade.php      ← Employer sidebar layout (shared)
+│   └── auth.blade.php          ← Login/register layout (shared)
+│
+├── auth/
+│   ├── register.blade.php      ← Register page (Candidate + Employer)
+│   └── login.blade.php         ← Login page
+│
+├── candidate/
+│   ├── home.blade.php          ← Home + Identify Career modal + Skills popup
+│   ├── jobs.blade.php          ← Find Jobs page (search + filters)
+│   ├── results.blade.php       ← Career Matches page
+│   ├── applications.blade.php  ← My Applications page
+│   └── profile.blade.php       ← My Profile + Resume Builder
+│
+└── employer/
+    ├── dashboard.blade.php     ← Employer Dashboard
+    ├── jobs/
+    │   ├── index.blade.php     ← My Job Listings
+    │   └── create.blade.php    ← Post a Job
+    ├── candidates.blade.php    ← Browse Candidates
+    └── applicants.blade.php    ← Review Applicants
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+public/css/
+└── app.css                     ← ALL shared styles (dark + light mode)
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## Team Assignment (Suggested)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Member | File(s) to work on |
+|---|---|
+| Member 1 (Fiena) | `candidate/home.blade.php` (Identify Career + Skills Popup) |
+| Member 2 | `candidate/jobs.blade.php` + `candidate/results.blade.php` |
+| Member 3 | `employer/dashboard.blade.php` + `employer/candidates.blade.php` |
+| Member 4 | `employer/jobs/create.blade.php` + `employer/applicants.blade.php` |
+| All | `auth/register.blade.php` + `auth/login.blade.php` (shared) |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## How to Use
 
-## Security Vulnerabilities
+### 1. Extend the layout
+```blade
+{{-- Candidate pages --}}
+@extends('layouts.candidate')
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+{{-- Employer pages --}}
+@extends('layouts.employer')
 
-## License
+{{-- Auth pages --}}
+@extends('layouts.auth')
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2. Set page title
+```blade
+@section('title', 'My Page Title')
+```
+
+### 3. Write your content
+```blade
+@section('content')
+    <div class="page">
+        <!-- your HTML here -->
+    </div>
+@endsection
+```
+
+### 4. Add page-specific scripts
+```blade
+@push('scripts')
+<script>
+    // your JavaScript here
+</script>
+@endpush
+```
+
+---
+
+## CSS Classes Quick Reference
+
+### Layout
+- `.page` — main page padding (28px 32px)
+- `.grid-2` — 2-column grid
+- `.grid-3` — 3-column grid
+- `.grid-4` — 4-column grid
+
+### Cards
+- `.card` — standard card (bg + border + rounded)
+- `.card-sm` — smaller padding card
+- `.card-title` — card header with bottom border
+
+### Form
+- `.form-group` — wraps label + input
+- `.form-label` — uppercase small label
+- `.form-input` — styled text input
+- `.form-select` — styled select dropdown
+- `.form-grid-2` — 2-column form layout
+
+### Buttons
+- `.btn .btn-primary` — gold button
+- `.btn .btn-secondary` — dark green button
+- `.btn .btn-outline` — transparent + border button
+- `.btn .btn-sm` — small size
+- `.btn .btn-full` — full width
+
+### Badges
+- `.badge .badge-success` — green
+- `.badge .badge-warning` — amber
+- `.badge .badge-info` — blue
+- `.badge .badge-danger` — red
+- `.badge .badge-gold` — gold
+
+### Modal
+- `.modal-overlay` — dark backdrop (fixed, fullscreen)
+- `.modal` — white modal box
+- `.modal-header` / `.modal-body` / `.modal-footer`
+
+### Popup (nested modal)
+- `.popup-overlay` — darker backdrop
+- `.popup` — smaller popup box
+- `.popup-header` / `.popup-body` / `.popup-footer`
+
+### Upload
+- `.upload-zone` — dashed upload area
+- `.upload-zone.uploaded` — green state after upload
+
+### Skill Bars
+- `.skill-bar` — wrapper
+- `.skill-bar-header` — label row
+- `.skill-bar-track` — grey track
+- `.skill-bar-fill` — gold fill
+- `.skill-bar-fill.danger` — red fill
+
+### Requirement Boxes
+- `.req-box .req-box-have` — green box (skills you have)
+- `.req-box .req-box-need` — red box (skills you need)
+- `.req-item` — individual skill row
+
+### AI Box
+- `.ai-box` — left gold border tip box
+- `.ai-box-icon` / `.ai-box-title` / `.ai-box-text`
+
+---
+
+## JavaScript Helpers (available in all candidate pages)
+
+```javascript
+// Show/close modal
+showModal('modal-id')
+closeModal('modal-id')
+
+// Show/close popup (nested)
+showPopup('popup-id')
+closePopup('popup-id')
+
+// File upload feedback
+fileSelected(inputEl, 'zone-id', 'filename-id', 'filesize-id')
+
+// Auto-hide toast after N ms
+autoHideToast('toast-id', 4000)
+
+// Toggle dark/light theme
+toggleTheme()
+```
+
+---
+
+## Run the project
+```bash
+php artisan serve
+```
+
+Then open: `http://localhost:8000`
+
+| URL | Page |
+|---|---|
+| `/register` | Register / Login |
+| `/` | Candidate Home |
+| `/jobs` | Find Jobs |
+| `/career-matches` | Career Matches |
+| `/applications` | My Applications |
+| `/profile` | My Profile |
+| `/employer/dashboard` | Employer Dashboard |
+| `/employer/jobs/create` | Post a Job |
+| `/employer/jobs` | My Listings |
+| `/employer/candidates` | Browse Candidates |
+| `/employer/applicants` | Review Applicants |
