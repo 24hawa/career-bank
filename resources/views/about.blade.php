@@ -44,7 +44,7 @@
     <header class="relative bg-[#0f0c08] pt-24 pb-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/50 text-amber-400 mb-6 border border-amber-800/30">
-                🍂 The Story Behind the Canopy
+                The Story Behind the Canopy
             </span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-100 tracking-tight max-w-4xl mx-auto leading-tight">
                 Nurturing the Future of <span class="text-amber-500">Global Talent</span>

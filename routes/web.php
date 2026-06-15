@@ -6,8 +6,17 @@ use App\Http\Controllers\CareerGuidanceController;
 Route::get('/', function () {
     return view('landing');
     });
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/career/home', function () {
+    return view('career.home'); 
+});
+
 // Home dashboard
-Route::get('/', [CareerGuidanceController::class, 'home'])->name('home');
+Route::get('/career', [CareerGuidanceController::class, 'home'])->name('home');
 
 // Career Guidance module
 Route::prefix('guidance')->name('guidance.')->group(function () {
