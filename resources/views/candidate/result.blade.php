@@ -14,7 +14,7 @@
 
         {{-- ── REPORT HEADER ELEMENT ── --}}
         <div class="res-head" style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px;">
-            <div class="res-icon" style="width: 44px; height: 44px; border-radius: 8px; background: rgba(200,155,0,0.1); color: #C89B00; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="res-icon" style="width: 44px; height: 44px; border-radius: 8px; background: rgba(200,155,0,0.1); color: #0083A0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                 <i class="ti ti-target-arrow" style="font-size: 22px;"></i>
             </div>
             <div class="res-title">
@@ -27,8 +27,8 @@
 
         {{-- ── ACCENT SCORE METRICS ROW ── --}}
         <div class="score-row" style="display: flex; align-items: center; gap: 20px; padding: 20px; background: var(--input-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 24px;">
-            <div class="sc" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; border: 4px solid #C89B00; background: rgba(200,155,0,0.05); flex-shrink: 0;">
-                <span class="sc-n" style="font-size: 18px; font-weight: 700; color: #C89B00;">{{ $analysis['score'] }}%</span>
+            <div class="sc" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; border: 4px solid #0083A0; background: rgba(200,155,0,0.05); flex-shrink: 0;">
+                <span class="sc-n" style="font-size: 18px; font-weight: 700; color: #0083A0;">{{ $analysis['score'] }}%</span>
                 <span class="sc-l" style="font-size: 10px; color: var(--muted); text-transform: uppercase; margin-top: -2px;">match</span>
             </div>
             <div class="sc-info">
@@ -102,7 +102,7 @@
         {{-- ── PERSISTENT AI BOX ADVICE ── --}}
         <div class="ai-box" style="margin-bottom: 28px;">
             <div class="ai-head" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                <span class="ai-badge" style="background: #C89B00; color: #ffffff; font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 2px 6px; border-radius: 4px;">AI Insight</span>
+                <span class="ai-badge" style="background: #0083A0; color: #ffffff; font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 2px 6px; border-radius: 4px;">AI Insight</span>
                 <h3 style="font-size: 14px; font-weight: 600; color: var(--text); margin: 0;">Personalised Career Guidance</h3>
             </div>
             <div class="ai-body" style="font-size: 13px; color: var(--muted); line-height: 1.6;">

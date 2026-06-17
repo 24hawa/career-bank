@@ -25,7 +25,7 @@
 {{-- ── REDIRECT TOAST (DYNAMIC FROM CAREER PROFILE IDENTIFICATION) ── --}}
 @if(request('career'))
 <div class="toast" id="redirect-toast">
-    <i class="ti ti-check" style="font-size:16px;color:#C89B00;flex-shrink:0"></i>
+    <i class="ti ti-check" style="font-size:16px;color:#0083A0;flex-shrink:0"></i>
     <div>
         <div class="toast-title">Redirected from Career Identify</div>
         <div class="toast-sub">Showing jobs matching your Career Bank — {{ ucwords(str_replace('-',' ', request('career'))) }}</div>
@@ -100,10 +100,10 @@
                     <div style="text-align:center;flex-shrink:0">
                         <svg width="52" height="52" viewBox="0 0 52 52">
                             <circle cx="26" cy="26" r="21" fill="none" stroke="var(--border)" stroke-width="4"/>
-                            <circle cx="26" cy="26" r="21" fill="none" stroke="#C89B00" stroke-width="4"
+                            <circle cx="26" cy="26" r="21" fill="none" stroke="#0083A0" stroke-width="4"
                                     stroke-dasharray="{{ $job['match'] * 1.32 }} 132"
                                     stroke-dashoffset="33" stroke-linecap="round"/>
-                            <text x="26" y="30" text-anchor="middle" font-size="10" font-weight="600" fill="#C89B00">{{ $job['match'] }}%</text>
+                            <text x="26" y="30" text-anchor="middle" font-size="10" font-weight="600" fill="#0083A0">{{ $job['match'] }}%</text>
                         </svg>
                         <div style="font-size:10px;color:var(--muted)">match</div>
                     </div>
@@ -169,7 +169,7 @@
                 @if(request('career'))
                 <div class="form-group" style="margin-bottom:14px">
                     <label class="form-label">Career Bank filter</label>
-                    <div style="background:rgba(200,155,0,0.1);border:1px solid #C89B00;border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#C89B00">
+                    <div style="background:rgba(200,155,0,0.1);border:1px solid #0083A0;border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#0083A0">
                         <span><i class="ti ti-dna" style="font-size:13px"></i> {{ ucwords(str_replace('-',' ', request('career'))) }}</span>
                         <a href="{{ route('candidate.jobs') }}" style="color:var(--muted);font-size:12px"><i class="ti ti-x"></i></a>
                     </div>

@@ -80,7 +80,7 @@
 
             {{-- ── ACADEMIC SLIPS AND ATTACHMENTS ── --}}
             <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; margin-top: 24px;">
-                <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: #C89B00; font-weight: 600;">Document Upload</h3>
+                <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: #0083A0; font-weight: 600;">Document Upload</h3>
             </div>
 
             <div class="grid-2" style="margin-bottom: 20px;">
@@ -101,7 +101,7 @@
 
             {{-- ── PARSING TARGET: RESUME PROFILE ── --}}
             <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; margin-top: 24px;">
-                <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: #C89B00; font-weight: 600;">Resume Profile</h3>
+                <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: #0083A0; font-weight: 600;">Resume Profile</h3>
             </div>
 
             <div style="margin-bottom: 28px;">

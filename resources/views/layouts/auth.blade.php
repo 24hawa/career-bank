@@ -16,7 +16,7 @@
             
             {{-- Left Side: Brand Logo --}}
             <a href="/" style="font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                <span style="color: #C89B00;">Career</span>Bank
+                <span style="color: #0083A0;">Career</span>Bank
             </a>
 
             {{-- Right Side: Navigation Links --}}
@@ -35,7 +35,7 @@
         {{-- LEFT PANEL --}}
         <div style="width:360px; background:#0B1A0E; padding:40px 36px; display:flex; flex-direction:column; justify-content:center; flex-shrink:0">
             <div style="margin-bottom:32px">
-                <div style="width:40px; height:40px; border-radius:10px; background:#C89B00; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#0B1A0E; margin-bottom:14px">CD</div>
+                <div style="width:40px; height:40px; border-radius:10px; background:#0083A0; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#0B1A0E; margin-bottom:14px">CD</div>
                 <div style="font-size:22px; font-weight:600; color:#fff; margin-bottom:8px">Career Bank</div>
                 <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.8">
                     The living career profile that grows with you — from Day 1 of university to 10 years after graduation.
@@ -51,7 +51,7 @@
                 'Track applications in one place'
             ] as $feature)
             <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,0.45); margin-bottom:8px">
-                <i class="ti ti-check" style="color:#C89B00; font-size:14px; flex-shrink:0"></i> {{ $feature }}
+                <i class="ti ti-check" style="color:#0083A0; font-size:14px; flex-shrink:0"></i> {{ $feature }}
             </div>
             @endforeach
         </div>

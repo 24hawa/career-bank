@@ -19,7 +19,7 @@
             {{-- Personal Details Card --}}
             <div class="card" style="padding: 20px;">
                 <h3 style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                    <i class="ti ti-user" style="color: #C89B00;"></i> Personal Details
+                    <i class="ti ti-user" style="color: #0083A0;"></i> Personal Details
                 </h3>
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
@@ -44,7 +44,7 @@
             {{-- Education & University Card --}}
             <div class="card" style="padding: 20px;">
                 <h3 style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                    <i class="ti ti-school" style="color: #C89B00;"></i> Academic Background
+                    <i class="ti ti-school" style="color: #0083A0;"></i> Academic Background
                 </h3>
                 <div class="form-group">
                     <label class="form-label">University / Institution</label>
@@ -69,7 +69,7 @@
             {{-- Skills & Highlights Card --}}
             <div class="card" style="padding: 20px;">
                 <h3 style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                    <i class="ti ti-bookmarks" style="color: #C89B00;"></i> Core Skills (Comma Separated)
+                    <i class="ti ti-bookmarks" style="color: #0083A0;"></i> Core Skills (Comma Separated)
                 </h3>
                 <div class="form-group" style="margin-bottom: 0;">
                     <label class="form-label">Technical Competencies</label>
@@ -96,7 +96,7 @@
                 {{-- Sheet Header Summary --}}
                 <div style="border-bottom: 2px solid #0B1A0E; padding-bottom: 16px; margin-bottom: 20px;">
                     <h2 id="view-name" style="font-size: 24px; font-weight: 700; color: #0B1A0E; margin: 0 0 4px 0; letter-spacing: -0.5px;">Shafiena Binti Usri</h2>
-                    <div id="view-title" style="font-size: 14px; font-weight: 500; color: #C89B00; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Software Engineering Student</div>
+                    <div id="view-title" style="font-size: 14px; font-weight: 500; color: #0083A0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Software Engineering Student</div>
                     
                     <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: #64748b;">
                         <span style="display: flex; align-items: center; gap: 4px;"><i class="ti ti-mail"></i> <span id="view-email">shafiena@university.edu.my</span></span>

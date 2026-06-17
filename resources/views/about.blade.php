@@ -14,10 +14,10 @@
     {{-- Unified Layout styling to cleanly mirror landing page proportions --}}
     <style>
         .about-hero { text-align: center; padding: 80px 20px; max-width: 900px; margin: 0 auto; }
-        .about-badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(217, 119, 6, 0.2); background: rgba(217, 119, 6, 0.05); color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em; }
+        .about-badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(0, 163, 196, 0.2); background: rgba(0, 163, 196, 0.05); color: #00A3C4; text-transform: uppercase; letter-spacing: 0.05em; }
         .about-title { font-size: 48px; font-weight: 800; tracking-tight: -0.025em; line-height: 1.15; margin-bottom: 20px; color: #fff; }
         #body-root.light .about-title { color: #111827; }
-        .about-title span { color: #f59e0b; }
+        .about-title span { color: #00A3C4; }
         .about-sub { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
         
         .content-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -26,14 +26,14 @@
         @media (min-width: 768px) { .vision-section { grid-template-columns: 1.2fr 0.8fr; } }
         
         .vision-text h2 { font-size: 28px; font-weight: 700; margin: 0 0 16px 0; }
-        .vision-text h2 span { color: #f59e0b; }
+        .vision-text h2 span { color: #00A3C4; }
         .vision-text p { color: var(--muted); line-height: 1.6; font-size: 15px; margin-bottom: 20px; }
         
         .vision-mini-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 480px) { .vision-mini-grid { grid-template-columns: 1fr 1fr; } }
         
         .mini-card { padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); }
-        .mini-icon { font-size: 24px; color: #f59e0b; margin-bottom: 12px; }
+        .mini-icon { font-size: 24px; color: #00A3C4; margin-bottom: 12px; }
         .mini-card h4 { margin: 0 0 6px 0; font-size: 15px; font-weight: 600; }
         .mini-card p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
 
@@ -43,13 +43,13 @@
         
         .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 80px; }
         .pillar-card { display: flex; flex-direction: column; justify-content: space-between; padding: 28px; height: 100%; }
-        .pillar-module { font-family: monospace; font-size: 11px; font-weight: 700; color: #f59e0b; letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+        .pillar-module { font-family: monospace; font-size: 11px; font-weight: 700; color: #00A3C4; letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
         .pillar-card h3 { margin: 0 0 12px 0; font-size: 18px; font-weight: 700; }
         .pillar-card p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
-        .pillar-icon { text-align: right; font-size: 24px; color: rgba(245, 158, 11, 0.2); margin-top: 24px; }
+        .pillar-icon { text-align: right; font-size: 24px; color: rgba(0, 163, 196, 0.2); margin-top: 24px; }
         
         .global-footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 20px; text-align: center; font-size: 14px; color: var(--muted); }
-        #body-root.light .about-badge { background: rgba(217, 119, 6, 0.08); }
+        #body-root.light .about-badge { background: rgba(0, 163, 196, 0.08); }
         #body-root.light .mini-card { background: rgba(0, 0, 0, 0.02); border-color: rgba(0, 0, 0, 0.04); }
     </style>
 </head>

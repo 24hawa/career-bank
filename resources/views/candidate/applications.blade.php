@@ -63,7 +63,7 @@
             
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 12px;">
                 <div style="display: flex; gap: 14px; align-items: center;">
-                    <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(0,0,0,0.03); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: {{ $app->company_color ?? '#C89B00' }};">
+                    <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(0,0,0,0.03); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: {{ $app->company_color ?? '#0083A0' }};">
                         {{ strtoupper(substr($app->company_name, 0, 2)) }}
                     </div>
                     <div>

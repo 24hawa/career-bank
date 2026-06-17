@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (currentStep) {
                 currentStep.style.opacity = "1";
                 const dot = currentStep.querySelector('.sdot');
-                if (dot) dot.style.background = "#C89B00"; // Accent active step
+                if (dot) dot.style.background = "#0083A0"; // Accent active step
             }
             
             // Mark previous as completed

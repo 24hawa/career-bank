@@ -6,13 +6,13 @@
 
     <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:4px">Create your account</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:20px">
-        Already have one? <a href="{{ route('login') }}" style="color:#C89B00">Sign in</a>
+        Already have one? <a href="{{ route('login') }}" style="color:#0083A0">Sign in</a>
     </div>
 
     {{-- Role selector --}}
     <div style="display:flex;gap:0;background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:3px;margin-bottom:20px" id="role-tabs">
         <div id="tab-candidate" onclick="setRole('candidate')"
-             style="flex:1;text-align:center;padding:8px;border-radius:7px;background:#C89B00;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer">
+             style="flex:1;text-align:center;padding:8px;border-radius:7px;background:#0083A0;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer">
             <i class="ti ti-user" style="font-size:14px;vertical-align:-2px"></i> Candidate
         </div>
         <div id="tab-employer" onclick="setRole('employer')"
@@ -94,7 +94,7 @@
         </button>
 
         <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:12px">
-            By signing up you agree to our <a href="#" style="color:#C89B00">Terms</a> &amp; <a href="#" style="color:#C89B00">Privacy Policy</a>
+            By signing up you agree to our <a href="#" style="color:#0083A0">Terms</a> &amp; <a href="#" style="color:#0083A0">Privacy Policy</a>
         </div>
     </form>
 </div>
@@ -109,13 +109,13 @@ function setRole(role) {
     const cTab = document.getElementById('tab-candidate');
     const eTab = document.getElementById('tab-employer');
     if (role === 'candidate') {
-        cTab.style.cssText = 'flex:1;text-align:center;padding:8px;border-radius:7px;background:#C89B00;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer';
+        cTab.style.cssText = 'flex:1;text-align:center;padding:8px;border-radius:7px;background:#0083A0;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer';
         eTab.style.cssText = 'flex:1;text-align:center;padding:8px;font-size:13px;color:var(--muted);cursor:pointer';
         document.getElementById('candidate-fields').style.display = '';
         document.getElementById('employer-fields').style.display = 'none';
         document.querySelector('[type=submit]').innerHTML = '<i class="ti ti-user-plus"></i> Create my Career Bank';
     } else {
-        eTab.style.cssText = 'flex:1;text-align:center;padding:8px;border-radius:7px;background:#C89B00;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer';
+        eTab.style.cssText = 'flex:1;text-align:center;padding:8px;border-radius:7px;background:#0083A0;font-size:13px;font-weight:500;color:#0B1A0E;cursor:pointer';
         cTab.style.cssText = 'flex:1;text-align:center;padding:8px;font-size:13px;color:var(--muted);cursor:pointer';
         document.getElementById('candidate-fields').style.display = 'none';
         document.getElementById('employer-fields').style.display = '';

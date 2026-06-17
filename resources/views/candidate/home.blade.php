@@ -17,8 +17,8 @@
     {{-- IDENTIFY CAREER CARD (Now Wider!) --}}
     <div class="feature-card highlight" onclick="showModal('identify-modal')" style="grid-column: span 2;">
         <div class="feature-card-tag"><i class="ti ti-sparkles" style="font-size:10px"></i> AI-powered</div>
-        <div class="feature-card-icon" style="background:rgba(200,155,0,0.15)">
-            <i class="ti ti-dna" style="color:#C89B00"></i>
+        <div class="feature-card-icon" style="background:rgba(0,163,196,0.15)">
+            <i class="ti ti-dna" style="color:#0083A0"></i>
         </div>
         <div class="feature-card-title">Identify Career</div>
         <div class="feature-card-desc">
@@ -100,9 +100,9 @@
     <div class="card" style="display:flex;align-items:center;gap:20px">
         <svg width="60" height="60" viewBox="0 0 60 60" style="flex-shrink:0">
             <circle cx="30" cy="30" r="24" fill="none" stroke="var(--border)" stroke-width="5"/>
-            <circle cx="30" cy="30" r="24" fill="none" stroke="#C89B00" stroke-width="5"
+            <circle cx="30" cy="30" r="24" fill="none" stroke="#0083A0" stroke-width="5"
                 stroke-dasharray="124 151" stroke-dashoffset="38" stroke-linecap="round"/>
-            <text x="30" y="35" text-anchor="middle" font-size="12" font-weight="600" fill="#C89B00">82%</text>
+            <text x="30" y="35" text-anchor="middle" font-size="12" font-weight="600" fill="#0083A0">82%</text>
         </svg>
         <div style="flex:1">
             <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px">
@@ -132,7 +132,7 @@
         <div class="modal-header">
             <div>
                 <div class="modal-title">
-                    <i class="ti ti-dna" style="color:#C89B00;margin-right:6px"></i> Identify Career
+                    <i class="ti ti-dna" style="color:#0083A0;margin-right:6px"></i> Identify Career
                 </div>
                 <div class="modal-subtitle">
                     Fill in your details and upload your transcript — AI will do the rest
@@ -172,7 +172,7 @@
             {{-- STEP 1 — Personal details --}}
             <div id="modal-step-1">
                 <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:7px">
-                    <i class="ti ti-user" style="color:#C89B00"></i> Personal details
+                    <i class="ti ti-user" style="color:#0083A0"></i> Personal details
                 </div>
                 <div class="form-grid-2">
                     <div class="form-group">
@@ -213,7 +213,7 @@
             {{-- STEP 2 — Upload --}}
             <div id="modal-step-2" style="display:none">
                 <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:7px">
-                    <i class="ti ti-file-upload" style="color:#C89B00"></i> Academic transcript
+                    <i class="ti ti-file-upload" style="color:#0083A0"></i> Academic transcript
                 </div>
                 <div style="font-size:12px;color:var(--muted);margin-bottom:14px">
                     Upload your result slip or academic transcript. AI will scan it to detect your skills and match suitable careers.
@@ -312,7 +312,7 @@
                 @endphp
 
                 @foreach($careers as $career)
-                <div class="card card-sm" style="margin-bottom:10px;border:1px solid {{ $career['top'] ? '#C89B00' : 'var(--border)' }}">
+                <div class="card card-sm" style="margin-bottom:10px;border:1px solid {{ $career['top'] ? '#0083A0' : 'var(--border)' }}">
                     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
                         <span style="font-size:10px;color:var(--muted)">Match #{{ $career['rank'] }}</span>
                         <span class="badge {{ $career['badge'] }}">{{ $career['pill'] }}</span>
@@ -320,10 +320,10 @@
                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
                         <svg width="52" height="52" viewBox="0 0 52 52" style="flex-shrink:0">
                             <circle cx="26" cy="26" r="21" fill="none" stroke="var(--border)" stroke-width="4"/>
-                            <circle cx="26" cy="26" r="21" fill="none" stroke="#C89B00" stroke-width="4"
+                            <circle cx="26" cy="26" r="21" fill="none" stroke="#0083A0" stroke-width="4"
                                 stroke-dasharray="{{ $career['match'] * 1.32 }} 132"
                                 stroke-dashoffset="33" stroke-linecap="round"/>
-                            <text x="26" y="30" text-anchor="middle" font-size="10" font-weight="600" fill="#C89B00">{{ $career['match'] }}%</text>
+                            <text x="26" y="30" text-anchor="middle" font-size="10" font-weight="600" fill="#0083A0">{{ $career['match'] }}%</text>
                         </svg>
                         <div>
                             <div style="font-size:14px;font-weight:500;color:var(--text)">{{ $career['name'] }}</div>
@@ -353,8 +353,8 @@
                     <div>
                         <div class="ai-box-title">AI Recommendation</div>
                         <div class="ai-box-text">
-                            Software Developer is your strongest match. Click <strong style="color:#C89B00">View skills</strong>
-                            to see what you have and what you still need. Click <strong style="color:#C89B00">Find jobs</strong>
+                            Software Developer is your strongest match. Click <strong style="color:#0083A0">View skills</strong>
+                            to see what you have and what you still need. Click <strong style="color:#0083A0">Find jobs</strong>
                             to browse matching job listings.
                         </div>
                     </div>
@@ -387,7 +387,7 @@
         <div class="popup-header">
             <div>
                 <div class="popup-title" id="popup-career-name">
-                    <i class="ti ti-chart-bar" style="color:#C89B00;margin-right:6px"></i> Career — Skill Requirements
+                    <i class="ti ti-chart-bar" style="color:#0083A0;margin-right:6px"></i> Career — Skill Requirements
                 </div>
                 <div class="popup-sub" id="popup-career-match">Based on your transcript</div>
             </div>
@@ -401,12 +401,12 @@
             <div style="display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px">
                 <svg id="popup-ring" width="70" height="70" viewBox="0 0 70 70" style="flex-shrink:0">
                     <circle cx="35" cy="35" r="28" fill="none" stroke="var(--border)" stroke-width="5"/>
-                    <circle cx="35" cy="35" r="28" fill="none" stroke="#C89B00" stroke-width="5"
+                    <circle cx="35" cy="35" r="28" fill="none" stroke="#0083A0" stroke-width="5"
                         stroke-dasharray="148 176" stroke-dashoffset="44" stroke-linecap="round"/>
-                    <text x="35" y="40" text-anchor="middle" font-size="13" font-weight="600" fill="#C89B00" id="popup-ring-text">84%</text>
+                    <text x="35" y="40" text-anchor="middle" font-size="13" font-weight="600" fill="#0083A0" id="popup-ring-text">84%</text>
                 </svg>
                 <div>
-                    <div style="font-size:28px;font-weight:600;color:#C89B00" id="popup-score">84%</div>
+                    <div style="font-size:28px;font-weight:600;color:#0083A0" id="popup-score">84%</div>
                     <div style="font-size:13px;color:var(--text)">Career readiness</div>
                     <div style="font-size:11px;color:var(--muted);margin-top:3px" id="popup-skill-count">You have X of Y required skills</div>
                 </div>
@@ -598,7 +598,7 @@ const skillData = {
 function showSkillsPopup(careerName, match) {
     const data = skillData[careerName] || skillData['Software Developer'];
     document.getElementById('popup-career-name').innerHTML =
-        '<i class="ti ti-chart-bar" style="color:#C89B00;margin-right:6px"></i>' + careerName + ' — Skill Requirements';
+        '<i class="ti ti-chart-bar" style="color:#0083A0;margin-right:6px"></i>' + careerName + ' — Skill Requirements';
     document.getElementById('popup-career-match').textContent =
         'Based on your transcript · ' + data.match + '% overall match';
     document.getElementById('popup-score').textContent = data.match + '%';
@@ -615,7 +615,7 @@ function showSkillsPopup(careerName, match) {
     document.getElementById('bar-fw-val').textContent = barVals[1] + '%';
     document.getElementById('bar-ind').style.width = barVals[2] + '%';
     document.getElementById('bar-ind-val').textContent = barVals[2] + '%';
-    document.getElementById('bar-ind-val').style.color = barVals[2] < 50 ? '#E24B4A' : '#C89B00';
+    document.getElementById('bar-ind-val').style.color = barVals[2] < 50 ? '#E24B4A' : '#0083A0';
 
     // Have skills
     document.getElementById('popup-have-skills').innerHTML = data.have.map(([s, src]) => `

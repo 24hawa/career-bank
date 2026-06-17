@@ -14,25 +14,26 @@
     {{-- Inline layout adjustments to structure your native app.css components cleanly --}}
     <style>
         .hero-section { text-align: center; padding: 80px 20px; max-width: 900px; margin: 0 auto; }
-        .hero-badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(217, 119, 6, 0.2); background: rgba(217, 119, 6, 0.05); color: #f59e0b; }
+        /* Swapped out amber accents for custom cyan borders/background definitions */
+        .hero-badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(0, 163, 196, 0.2); background: rgba(0, 163, 196, 0.05); color: #00A3C4; }
         .hero-title { font-size: 48px; font-weight: 800; tracking-tight: -0.025em; line-height: 1.15; margin-bottom: 20px; }
-        .hero-title span { color: #f59e0b; }
+        .hero-title span { color: #00A3C4; }
         .hero-sub { font-size: 18px; color: var(--muted); max-width: 650px; margin: 0 auto; line-height: 1.6; }
         
         .gateway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: -20px auto 80px auto; padding: 0 20px; position: relative; z-index: 10; }
         .gateway-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .gateway-icon { w-width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; background: rgba(217, 119, 6, 0.1); color: #f59e0b; border: 1px solid rgba(217, 119, 6, 0.2); }
+        .gateway-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; background: rgba(0, 163, 196, 0.1); color: #00A3C4; border: 1px solid rgba(0, 163, 196, 0.2); }
         .gateway-features { list-style: none; padding: 0; margin: 0 0 30px 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
         .gateway-features li { display: flex; align-items: center; gap: 10px; color: var(--muted); }
-        .gateway-features i { color: #f59e0b; font-size: 16px; }
+        .gateway-features i { color: #00A3C4; font-size: 16px; }
         
-        .global-footer { border-t: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 20px; text-align: center; font-size: 14px; color: var(--muted); }
-        #body-root.light .hero-badge { background: rgba(217, 119, 6, 0.08); }
+        .global-footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 20px; text-align: center; font-size: 14px; color: var(--muted); }
+        #body-root.light .hero-badge { background: rgba(0, 163, 196, 0.08); }
     </style>
 </head>
 <body id="body-root">
 
-    {{-- ── NAVBAR (Standardized to matching app rules) ── --}}
+    {{-- ── NAVBAR ── --}}
     <nav class="navbar">
         <a href="{{ route('landing') }}" class="nav-logo">
             <div class="nav-mark">CB</div>
@@ -63,10 +64,11 @@
     {{-- ── HERO SECTION ── --}}
     <header class="hero-section">
         <div class="hero-badge">
-            <i class="ti ti-git-fork" style="margin-right: 6px; font-size: 14px;"></i> Golden Opportunity: The Unified Talent Network
+            <!-- Icon changed to ti-network and color set to cyan styling rules -->
+            <i class="ti ti-network" style="margin-right: 6px; font-size: 14px;"></i> Golden Opportunity: The Unified Talent Network
         </div>
         <h1 class="hero-title">Harvest Your Potential with <span>Career Bank</span></h1>
-        <p class="hero-sub">A golden ecosystem bringing together students, seekers, and enterprises into one thriving, unified forest canopy.</p>
+        <p class="hero-sub">A cyan ecosystem bringing together students, seekers, and enterprises into one thriving, unified forest canopy.</p>
     </header>
 
     {{-- ── THE 3 DOORS GATEWAY GRID ── --}}
@@ -83,13 +85,13 @@
                     <li><i class="ti ti-circle-check"></i> Skill Growth Pipeline</li>
                 </ul>
             </div>
-            <a href="{{ route('register') }}" class="btn" style="width: 100%; text-align: center; text-decoration: none; background: rgba(255,255,255,0.05); color: #f59e0b;">Get Started</a>
+            <a href="{{ route('register') }}" class="btn" style="width: 100%; text-align: center; text-decoration: none; background: rgba(255,255,255,0.05); color: #00A3C4;">Get Started</a>
         </div>
 
-        <!-- Door 2: Employers -->
-        <div class="card gateway-card" style="border-color: rgba(217, 119, 6, 0.3);">
+        <!-- Door 2: Employers (Highlighted Center Hub Card) -->
+        <div class="card gateway-card" style="border-color: rgba(0, 163, 196, 0.3);">
             <div>
-                <div class="gateway-icon" style="background: #f59e0b; color: #000;"><i class="ti ti-briefcase"></i></div>
+                <div class="gateway-icon" style="background: #00A3C4; color: #000;"><i class="ti ti-briefcase"></i></div>
                 <h3 style="margin: 0 0 10px 0; font-size: 20px;">For Employers</h3>
                 <p style="color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 24px 0;">Source fresh talent, manage your candidate pipeline, and retain your staff with internal modules.</p>
                 <ul class="gateway-features">
@@ -111,7 +113,7 @@
                     <li><i class="ti ti-circle-check"></i> Industry Partner Pools</li>
                 </ul>
             </div>
-            <a href="{{ route('register') }}" class="btn" style="width: 100%; text-align: center; text-decoration: none; background: rgba(255,255,255,0.05); color: #f59e0b;">Connect Now</a>
+            <a href="{{ route('register') }}" class="btn" style="width: 100%; text-align: center; text-decoration: none; background: rgba(255,255,255,0.05); color: #00A3C4;">Connect Now</a>
         </div>
 
     </main>
