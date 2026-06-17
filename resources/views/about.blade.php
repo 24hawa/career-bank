@@ -1,151 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Career Bank</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Career Bank — About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
+    {{-- Unified Layout styling to cleanly mirror landing page proportions --}}
+    <style>
+        .about-hero { text-align: center; padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .about-badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(217, 119, 6, 0.2); background: rgba(217, 119, 6, 0.05); color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em; }
+        .about-title { font-size: 48px; font-weight: 800; tracking-tight: -0.025em; line-height: 1.15; margin-bottom: 20px; color: #fff; }
+        #body-root.light .about-title { color: #111827; }
+        .about-title span { color: #f59e0b; }
+        .about-sub { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+        
+        .content-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .vision-section { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 48px; border-radius: 16px; margin-bottom: 60px; }
+        @media (min-width: 768px) { .vision-section { grid-template-columns: 1.2fr 0.8fr; } }
+        
+        .vision-text h2 { font-size: 28px; font-weight: 700; margin: 0 0 16px 0; }
+        .vision-text h2 span { color: #f59e0b; }
+        .vision-text p { color: var(--muted); line-height: 1.6; font-size: 15px; margin-bottom: 20px; }
+        
+        .vision-mini-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 480px) { .vision-mini-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .mini-card { padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); }
+        .mini-icon { font-size: 24px; color: #f59e0b; margin-bottom: 12px; }
+        .mini-card h4 { margin: 0 0 6px 0; font-size: 15px; font-weight: 600; }
+        .mini-card p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+        .pillars-header { text-align: center; margin-bottom: 40px; }
+        .pillars-header h2 { font-size: 32px; font-weight: 800; margin: 0 0 8px 0; }
+        .pillars-header p { margin: 0; font-size: 14px; color: var(--muted); }
+        
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 80px; }
+        .pillar-card { display: flex; flex-direction: column; justify-content: space-between; padding: 28px; height: 100%; }
+        .pillar-module { font-family: monospace; font-size: 11px; font-weight: 700; color: #f59e0b; letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+        .pillar-card h3 { margin: 0 0 12px 0; font-size: 18px; font-weight: 700; }
+        .pillar-card p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+        .pillar-icon { text-align: right; font-size: 24px; color: rgba(245, 158, 11, 0.2); margin-top: 24px; }
+        
+        .global-footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 20px; text-align: center; font-size: 14px; color: var(--muted); }
+        #body-root.light .about-badge { background: rgba(217, 119, 6, 0.08); }
+        #body-root.light .mini-card { background: rgba(0, 0, 0, 0.02); border-color: rgba(0, 0, 0, 0.04); }
+    </style>
 </head>
-<body class="bg-[#0f0c08] text-stone-300 font-sans antialiased selection:bg-amber-700 selection:text-white">
+<body id="body-root">
 
-    <!-- Global Navigation -->
-    <nav class="bg-[#0f0c08]/90 backdrop-blur-md border-b border-amber-950/50 sticky top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <div class="flex items-center gap-2">
-                    <a href="/" class="text-2xl font-black tracking-tight text-amber-500 flex items-center gap-2">
-                        <i class="fa-solid fa-tree"></i> CAREER<span class="text-white">BANK</span>
-                    </a>
-                </div>
+    {{-- ── NAVBAR ── --}}
+    <nav class="navbar">
+        <a href="{{ route('landing') }}" class="nav-logo">
+            <div class="nav-mark">CD</div>
+            <span class="nav-brand">Career Bank</span>
+        </a>
 
-                <!-- Role Toggles -->
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="/" class="text-stone-400 hover:text-amber-400 transition">Home</a>
-                    <a href="#vision" class="text-stone-400 hover:text-amber-400 transition">Our Vision</a>
-                    <a href="#pillars" class="text-stone-400 hover:text-amber-400 transition">Our Pillars</a>
-                </div>
+        <div class="nav-links">
+            <a href="{{ route('about') }}" class="nav-link active">About Us</a>
+            <a href="{{ route('candidate.job.home') }}" class="nav-link">Find Jobs</a>
+            <a href="/employer" class="nav-link">Career Services</a>
+        </div>
 
-                <!-- Auth Buttons -->
-                <div class="flex items-center gap-4">
-                    <a href="#login" class="text-sm font-semibold text-amber-600 hover:text-amber-400 transition">Sign In</a>
-                    <a href="#register" class="text-sm font-semibold bg-amber-600 hover:bg-amber-500 text-stone-950 px-4 py-2 rounded-lg transition shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-                        Join the Ecosystem
-                    </a>
+        <div class="nav-right">
+            {{-- Theme toggle --}}
+            <div class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                <div class="toggle-track">
+                    <div class="toggle-thumb"></div>
                 </div>
+                <span class="toggle-label" id="theme-label">Dark</span>
             </div>
+
+            <a href="{{ route('login') }}" class="nav-link" style="margin-right: 10px; font-weight: 600;">Sign In</a>
+            <a href="{{ route('register') }}" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; text-decoration: none;">Join Ecosystem</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative bg-[#0f0c08] pt-24 pb-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/50 text-amber-400 mb-6 border border-amber-800/30">
-                The Story Behind the Canopy
-            </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-100 tracking-tight max-w-4xl mx-auto leading-tight">
-                Nurturing the Future of <span class="text-amber-500">Global Talent</span>
-            </h1>
-            <p class="mt-6 text-lg sm:text-xl text-stone-400 max-w-2xl mx-auto leading-relaxed">
-                Traditional job sites are transactional—you apply, you leave. We envisioned a complete lifecycle ecosystem where education, recruitment, and professional growth cross-pollinate.
-            </p>
+    {{-- ── HERO SECTION ── --}}
+    <header class="about-hero">
+        <div class="about-badge">
+            <i class="ti ti-layers-linked" style="margin-right: 6px; font-size: 14px;"></i> Architecture Matrix
         </div>
-        
-        <!-- Decorative Elements -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(217,119,6,0.1),transparent_70%)]"></div>
+        <h1 class="about-title">Nurturing the Future of <span>Global Talent</span></h1>
+        <p class="about-sub">Traditional job sites are transactional. We built a complete lifestyle lifecycle network ecosystem where educational data paths, precise candidate tracking, and corporate growth cross-pollinate seamlessly.</p>
     </header>
 
-    <!-- Vision & Mission Block -->
-    <section id="vision" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-[#17140f] border border-amber-950/50 p-8 sm:p-12 rounded-2xl shadow-2xl">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-black text-stone-100 mb-4 tracking-tight">
-                    Why <span class="text-amber-400">"Career Bank"</span>?
-                </h2>
-                <p class="text-stone-400 text-sm sm:text-base leading-relaxed mb-6">
-                    A bank is a place where you securely store assets so they can appreciate over time. Your skills, experience, and academic journey are the most valuable professional assets you own. 
-                </p>
-                <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
-                    We provide the modern infrastructure to deposit those skills early during your university days, watch them grow through active candidate matching, and constantly harvest dividends through lifelong employee upskilling.
-                </p>
+    {{-- ── MAIN STRUCTURAL CONTENT ── --}}
+    <main class="content-container">
+
+        {{-- Vision Section --}}
+        <section class="card vision-section">
+            <div class="vision-text">
+                <h2>Why <span>"Career Bank"</span>?</h2>
+                <p>A bank is a structure where you securely manage assets so they appreciate over time. Your skills, qualifications, and experiential history are the most valuable professional assets you own.</p>
+                <p>We provide the modern infrastructure to deposit those assets early during your student days, leverage them through automated profile indexing, and constantly harvest dividends through continuous upskilling.</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Highlight Box 1 -->
-                <div class="p-6 rounded-xl bg-[#0f0c08] border border-amber-950/40">
-                    <div class="text-amber-500 text-xl mb-3"><i class="fa-solid fa-seedling"></i></div>
-                    <h4 class="font-bold text-stone-200 mb-1">Deep Roots</h4>
-                    <p class="text-xs text-stone-500 leading-relaxed">We capture talent early at the university level to build robust operational foundations.</p>
+            <div class="vision-mini-grid">
+                <div class="mini-card">
+                    <div class="mini-icon"><i class="ti ti-dna"></i></div>
+                    <h4>Early Staging</h4>
+                    <p>We sync data early at the university cohort level to optimize engineering foundations.</p>
                 </div>
-                <!-- Highlight Box 2 -->
-                <div class="p-6 rounded-xl bg-[#0f0c08] border border-amber-950/40">
-                    <div class="text-amber-500 text-xl mb-3"><i class="fa-solid fa-chart-line"></i></div>
-                    <h4 class="font-bold text-stone-200 mb-1">High Yield</h4>
-                    <p class="text-xs text-stone-500 leading-relaxed">We optimize employment and help companies retain their staff via educational tracks.</p>
+                <div class="mini-card">
+                    <div class="mini-icon"><i class="ti ti-trending-up"></i></div>
+                    <h4>High Value</h4>
+                    <p>We optimize placement workflows and clear matching friction for HR pipelines.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- The 4 Modules Breakdown -->
-    <section id="pillars" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-amber-950/20">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-black text-stone-100 tracking-tight">Our 4 Pillars of Growth</h2>
-            <p class="text-stone-500 text-sm mt-2">How our unified module architecture manages the complete career lifecycle.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Pillar 1 -->
-            <div class="p-6 bg-[#17140f] border border-amber-950/50 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-mono text-amber-600 block mb-2">MODULE 01</span>
-                    <h3 class="font-bold text-stone-200 text-lg mb-3">Universities</h3>
-                    <p class="text-xs text-stone-400 leading-relaxed">Funnels fresh student cohorts into active corporate visibility using clear, verified placement metrics.</p>
-                </div>
-                <div class="mt-6 text-right text-amber-600/30 text-2xl"><i class="fa-solid fa-building-columns"></i></div>
+        {{-- 4 Pillars Section --}}
+        <section>
+            <div class="pillars-header">
+                <h2>Our 4 Pillars of Growth</h2>
+                <p>How our unified application modules manage the complete data lifecycle.</p>
             </div>
 
-            <!-- Pillar 2 -->
-            <div class="p-6 bg-[#17140f] border border-amber-950/50 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-mono text-amber-600 block mb-2">MODULE 02</span>
-                    <h3 class="font-bold text-stone-200 text-lg mb-3">Candidates</h3>
-                    <p class="text-xs text-stone-400 leading-relaxed">Equips active job seekers with dashboard match-tooling to quickly find secure, high-fit industry options.</p>
+            <div class="pillars-grid">
+                <!-- Module 01 -->
+                <div class="card pillar-card">
+                    <div>
+                        <span class="pillar-module">MODULE 01</span>
+                        <h3>Universities</h3>
+                        <p>Funnels fresh student cohorts into corporate visibility pools using verified pipeline performance metrics.</p>
+                    </div>
+                    <div class="pillar-icon"><i class="ti ti-building-community"></i></div>
                 </div>
-                <div class="mt-6 text-right text-amber-600/30 text-2xl"><i class="fa-solid fa-user-tie"></i></div>
-            </div>
 
-            <!-- Pillar 3 -->
-            <div class="p-6 bg-[#17140f] border border-amber-950/50 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-mono text-amber-600 block mb-2">MODULE 03</span>
-                    <h3 class="font-bold text-stone-200 text-lg mb-3">Employers</h3>
-                    <p class="text-xs text-stone-400 leading-relaxed">Provides corporate HR teams with comprehensive end-to-end ATS pipelines to screen, filter, and recruit.</p>
+                <!-- Module 02 -->
+                <div class="card pillar-card">
+                    <div>
+                        <span class="pillar-module">MODULE 02</span>
+                        <h3>Candidates</h3>
+                        <p>Equips active talent with an interactive interface dashboard matrix to match into high-fit options.</p>
+                    </div>
+                    <div class="pillar-icon"><i class="ti ti-user-circle"></i></div>
                 </div>
-                <div class="mt-6 text-right text-amber-600/30 text-2xl"><i class="fa-solid fa-briefcase"></i></div>
-            </div>
 
-            <!-- Pillar 4 -->
-            <div class="p-6 bg-[#17140f] border border-amber-950/50 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-mono text-amber-600 block mb-2">MODULE 04</span>
-                    <h3 class="font-bold text-stone-200 text-lg mb-3">Employees</h3>
-                    <p class="text-xs text-stone-400 leading-relaxed">The internal platform keeping newly hired staff trained, upskilled, and motivated directly within the company ecosystem.</p>
+                <!-- Module 03 -->
+                <div class="card pillar-card">
+                    <div>
+                        <span class="pillar-module">MODULE 03</span>
+                        <h3>Employers</h3>
+                        <p>Provides HR teams with robust workspace filtering metrics to index, screen, and select candidate applications.</p>
+                    </div>
+                    <div class="pillar-icon"><i class="ti ti-briefcase"></i></div>
                 </div>
-                <div class="mt-6 text-right text-amber-600/30 text-2xl"><i class="fa-solid fa-layer-group"></i></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#0a0805] text-stone-500 py-12 border-t border-amber-950/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            &copy; {{ date('Y') }} Career Bank. Harvesting talent.
-        </div>
+                <!-- Module 04 -->
+                <div class="card pillar-card">
+                    <div>
+                        <span class="pillar-module">MODULE 04</span>
+                        <h3>Employees</h3>
+                        <p>The internal platform tracking ongoing corporate training operations directly within company operations.</p>
+                    </div>
+                    <div class="pillar-icon"><i class="ti ti-layers-intersect"></i></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    {{-- ── FOOTER ── --}}
+    <footer class="global-footer">
+        &copy; {{ date('Y') }} Career Bank. Harvesting talent and unifying ecosystems. Tech Catalyst@UPSI
     </footer>
 
+    {{-- ── CONTROL SCRIPTS ── --}}
+    <script>
+        const body  = document.getElementById('body-root');
+        const label = document.getElementById('theme-label');
+        const saved = localStorage.getItem('cdna-theme') || 'dark';
+        if (saved === 'light') { body.classList.add('light'); if(label) label.textContent = 'Light'; }
+
+        function toggleTheme() {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            if(label) label.textContent = isLight ? 'Light' : 'Dark';
+            localStorage.setItem('cdna-theme', isLight ? 'light' : 'dark');
+        }
+    </script>
 </body>
 </html>

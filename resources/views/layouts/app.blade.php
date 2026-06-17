@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Career Guidance — Career DNA</title>
+    <title>Career Guidance — Career Bank</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -15,12 +15,15 @@
 <nav class="navbar">
     <div class="nav-brand">
         <div class="nav-logo-box">CD</div>
-        <span class="nav-brand-name">Career DNA</span>
+        <span class="nav-brand-name">Career Bank</span>
     </div>
     <div class="nav-center">
         <a href="{{ url('/') }}" class="nav-link">Home</a>
         <a href="#" class="nav-link">Find Jobs</a>
-        <a href="{{ route('guidance.index') }}" class="nav-link {{ request()->routeIs('guidance.*') ? 'active' : '' }}">Career Matches</a>
+      <a href="{{ route('candidate.career.guidance') }}" 
+   class="nav-link {{ request()->routeIs('candidate.career.*') ? 'active' : '' }}">
+    <i class="ti ti-dna" style="font-size: 16px;"></i> Career Matches
+</a>
         <a href="#" class="nav-link">Applications</a>
     </div>
     <div class="nav-right">

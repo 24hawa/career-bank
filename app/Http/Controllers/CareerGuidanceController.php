@@ -103,7 +103,7 @@ class CareerGuidanceController extends Controller
 
     public function index()
     {
-        return view('career.guidance');
+        return view('candidate.career.guidance');
     }
 
     public function analyse(Request $request)
@@ -136,7 +136,7 @@ class CareerGuidanceController extends Controller
         $data = Cache::get('guidance_' . $request->analysis_key);
 
         if (!$data) {
-            return redirect()->route('guidance.index')
+            return redirect()->route('guidance')
                 ->withErrors(['Session expired. Please try again.']);
         }
 
